@@ -21,14 +21,11 @@ def merge(arr, left, right):
             arr[num] = right[j]
             j += 1
         num += 1
-    while i < len(left):
-        arr[num] = left[i]
-        i += 1
-        num += 1
-    while j < len(right):
-        arr[num] = right[j]
-        j += 1
-        num += 1
+
+    if i < len(left):
+        arr[num:] = left[i:]
+    if j < len(right):
+        arr[num:] = right[j:]
 
 
 if __name__ == "__main__":
