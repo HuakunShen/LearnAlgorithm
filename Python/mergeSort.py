@@ -2,6 +2,7 @@ from isSorted import *
 
 
 def merge_sort(arr: list):
+	''' Sort input array in non-decreasing order '''
     # Base Case
     if len(arr) <= 1:
         return
@@ -18,6 +19,7 @@ def merge_sort(arr: list):
 
 
 def merge(arr: list, left, right):
+	''' Merge two sorted arrays into one sorted array '''
     i = j = num = 0
     while i < len(left) and j < len(right):
         if left[i] < right[j]:
