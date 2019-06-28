@@ -2,7 +2,7 @@ from IsSorted import *
 def merge_sort(arr):
 	''' Merge arr in non-decreasing order '''
 	# Base Case
-    if len(arr) <= 1:
+	if len(arr) <= 1:
         return
     
     # Divide and Conquer
@@ -35,7 +35,28 @@ def merge(arr, left, right):
 
 
 if __name__ == "__main__":
-    arr = [7, 4, 9, 8, 1]
-    merge_sort(arr)
-    is_sorted_disp(arr)
-    print(is_sorted(arr))
+	# test
+	
+	import random
+	test_times = 100
+	test_len = 100
+	for i in range(test_times):
+		arr = []
+		for j in range(test_len):
+			arr.append(random.randint())
+		merge_sort(arr)
+		if not is_sorted(arr):
+			print("Test Failed")
+			break
+	print("Test Passed with ", test_times, " tests of length ", test_len)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
