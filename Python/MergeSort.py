@@ -1,4 +1,4 @@
-from is_sorted import *
+from IsSorted import *
 def merge_sort(arr):
     if len(arr) <= 1:
         return
@@ -32,4 +32,5 @@ def merge(arr, left, right):
 if __name__ == "__main__":
     arr = [7, 4, 9, 8, 1]
     merge_sort(arr)
+    is_sorted_disp(arr)
     print(is_sorted(arr))
