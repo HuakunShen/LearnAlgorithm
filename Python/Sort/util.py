@@ -8,4 +8,3 @@ def find_smallest_index(arr: list, start_index: int, end_index: int):
 		if arr[smallest_index] > arr[i]:
 			smallest_index = i
 	return smallest_index
-	
