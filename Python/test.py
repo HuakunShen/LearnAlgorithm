@@ -1,24 +1,27 @@
+import matplotlib
 import matplotlib.pyplot as plt
-import matplotlib.animation as animation
+import numpy as np
 import time
+# Data for plotting
 
-fig = plt.figure()
-ax1 = fig.add_subplot(1, 1, 1)
-
-
-def animate(i):
-    pullData = open("sampleText.txt", "r").read()
-    dataArray = pullData.split('\n')
-    xar = []
-    yar = []
-    for eachLine in dataArray:
-        if len(eachLine) > 1:
-            x, y = eachLine.split(',')
-            xar.append(int(x))
-            yar.append(int(y))
-    ax1.clear()
-    ax1.plot(xar, yar)
+fig, ax = plt.subplots()
+x = []
+y = []
+for t in range(0, 200):
+    x.append(t)
+    start = time.time()
+    for i in range(0, t):
+        for j in range(0, t):
+            print(t)
+    y.append(time.time() - start)
+ax.plot(x, y)
 
 
-ani = animation.FuncAnimation(fig, animate, interval=1000)
+# ax.plot(t, s)
+
+# ax.set(xlabel='time (s)', ylabel='voltage (mV)',
+#        title='About as simple as it gets, folks')
+ax.grid()
+
+# fig.savefig("test.png")
 plt.show()
