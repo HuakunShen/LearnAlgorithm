@@ -1,28 +1,22 @@
-from graph import *
+from Graph.graph import *
 import random
+from queue import PriorityQueue
+# from DataStructure.maxHeap import MaxHeap
+#
+class Vertex(Vertex):
+    def __init__(self, coordinate):
+        super().__init__(coordinate)
+        self.d = 0
+        self.parent = None
 
+    def __lt__(self, other):
+        return self.d < other.d
 
-# class Vertex(Vertex):
-#     def __init__(self):
-#         self.d = float("inf")
-#         self.parent = 1
-#
-#     def get_distance(self):
-#         return self.d
-#
-#     def get_parent(self):
-#         return self.parent
-#
-#     def set_distance(self, distance):
-#         self.d = distance
-#
-#     def set_parent(self, parent):
-#         self.parent = parent
 
 
 class SingleSourceShortestPath(WeightedGraph):
     def __init__(self, vertices, edges, weights, source_index):
-        super().__init__(vertices, edges, weights)
+        super().__init__(vertices, edges, weights, V=Vertex)
         self.source = self.vertices[source_index]
         self.initialize_single_source()
 
@@ -51,6 +45,48 @@ class SingleSourceShortestPath(WeightedGraph):
                 return False
         return True
 
+    def dijkstra(self):
+        S = []
+        Q = PriorityQueue()
+        for v in self.vertices:
+            Q.put(v)
+        self.update_representation()
+
+        while not Q.empty():
+            u = Q.get()
+            u_index = self.vertices.index(u)
+            S.append(u_index)
+            for v in self.adjacency_list[u_index]:
+                self.relax(u_index, v)
+
+
+
+    def print_path(self, i):
+        vertex = self.vertices[i]
+        result = str(i)
+        weight = 0
+        current_index = i
+        while vertex.parent:
+            vertex = vertex.parent
+            parent_index = self.vertices.index(vertex)
+            result = str(parent_index) + '->' + result
+            weight += self.weight_dict[(parent_index, current_index)]
+            current_index = parent_index
+        print(result + "\t\t\tweight=" + str(weight))
+        return result, weight
+
 
 vertices, edges = gen_random_simple_graph(5, 5)
-graph = SingleSourceShortestPath(vertices, edges, [random.randint(1, 10) for i in range(5)], 0)
+weights = [random.randint(1, 10) for i in range(5)]
+graph = SingleSourceShortestPath(vertices, edges, weights, 0)
+
+graph.bellman_ford()
+print(graph.get_adjacency_matrix())
+print(graph.get_adjacency_list())
+for i in range(5):
+    graph.print_path(i)
+graph2 = SingleSourceShortestPath(vertices, edges, weights, 0)
+print()
+graph2.dijkstra()
+for i in range(5):
+    graph2.print_path(i)

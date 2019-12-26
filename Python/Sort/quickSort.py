@@ -1,3 +1,6 @@
+import isSorted
+
+
 def quick_sort(arr):
     if len(arr) <= 1:
         return
@@ -9,13 +12,13 @@ def quick_sort(arr):
             small.append(arr[i])
         else:
             large.append(arr[i])
-            
+
     quick_sort(small)
     quick_sort(large)
     result = small + [pivot] + large
     arr[:] = result[:]
-    
+
+
 if __name__ == "__main__":
-	arr = [3, 5, 1, 4, 2]
-	quick_sort(arr)
-	print(arr)
+    isSorted.sorted_test(100, 100, quick_sort)
+

@@ -72,7 +72,6 @@ class MaxHeap:
             raise Exception("heap underflow")
         m = self.get_max()
         self.data[0] = self.data[self.heap_size - 1]
-        print("heap size: " + str(self.heap_size))
         self.heap_size -= 1
         self.max_heapify(0)
         return m
@@ -80,7 +79,7 @@ class MaxHeap:
     def build_max_heap_2(self):
         self.heap_size = 0
         for i in range(0, len(self.data)):
-            self.insert(self.data[i])
+            self.heap_insert(self.data[i])
 
     def increase_key(self, i, key):
         if key < self.data[i]:
@@ -90,11 +89,14 @@ class MaxHeap:
             self.data[i], self.data[parent(i)] = self.data[parent(i)], self.data[i]
             i = parent(i)
 
-    def insert(self, key):
+    def heap_insert(self, key):
         self.data[self.heap_size] = -float("inf")
         self.increase_key(self.heap_size, key)
         self.heap_size += 1
 
-
+    def insert(self, key):
+        self.data.append(-float("inf"))
+        self.increase_key(self.heap_size, key)
+        self.heap_size += 1
 
 

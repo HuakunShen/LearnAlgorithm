@@ -149,13 +149,13 @@ class Edge:
 
 
 class Graph:
-    def __init__(self, vertices, edges, dimension=2, undirected=False):
+    def __init__(self, vertices, edges, dimension=2, undirected=False, V=Vertex):
         assert len(vertices) > 0
         for vertex in vertices:
             assert len(vertex) == dimension
         self.vertices = []
         for vertex in vertices:
-            self.vertices.append(Vertex(vertex))
+            self.vertices.append(V(vertex))
         self.undirected = undirected
         # setup edges
         self.edges = []
@@ -280,8 +280,8 @@ class CompleteGraph(Graph):
 
 
 class WeightedGraph(Graph):
-    def __init__(self, vertices, edges, weights, dimension=2, undirected=False, negative_weight=False):
-        super().__init__(vertices, edges, dimension=dimension, undirected=False)
+    def __init__(self, vertices, edges, weights, dimension=2, undirected=False, negative_weight=False, V=Vertex):
+        super().__init__(vertices, edges, dimension=dimension, undirected=False, V=V)
         self.negative_weight = negative_weight
         assert len(weights) == len(edges)  # every edge has a weight, 1-to-1
         if not negative_weight:  # if negative weight is not allowed, make sure that there is really no negative weight
