@@ -107,45 +107,26 @@ def euclidean_distance(vertex1, vertex2):
 class Vertex:
     def __init__(self, coordinate):
         self.coordinate = coordinate
-        self.dimension = len(coordinate)
-        self.color = None
-
-    def get_coordinate(self) -> tuple:
-        return self.coordinate
-
-    def get_dimension(self) -> int:
-        return self.dimension
-
-    def __getitem__(self, item):
-        return self.coordinate[item]
-
-    def __eq__(self, other) -> bool:
-        return self.coordinate == other.coordinate
-
-    def __str__(self) -> str:
-        return str(self.coordinate)
 
 
 class Edge:
     def __init__(self, edge):
         self.edge = edge
-        self.color = None
-        self.weight = None
 
-    def get_edge(self) -> tuple:
+    def get_tuple(self):
         return self.edge
 
-    def __getitem__(self, item):
-        return self.edge[item]
+    def get_start(self):
+        return self.edge[0]
 
-    def __eq__(self, other):
-        return self.edge == other.edge
+    def get_end(self):
+        return self.edge[1]
 
-    def reversed_edge(self):
-        return Edge((self.edge[1], self.edge[0]))
+    def set_tuple(self, edge):
+        self.edge = edge
 
-    def __str__(self) -> str:
-        return str(self.edge)
+    def get_reversed_tuple(self):
+        return self.edge[1], self.edge[0]
 
 
 class Graph:
@@ -163,9 +144,9 @@ class Graph:
             self.edges.append(Edge(edge))
         if undirected:  # add bidirectional edges
             for edge in self.edges:
-                reversed_edge = edge.reversed_edge()
-                if reversed_edge not in self.edges:
-                    self.edges.append(reversed_edge)
+                reversed_edge_tuple = edge.get_reversed_tuple()
+                if reversed_edge_tuple not in self.edges:
+                    self.edges.append(Edge(reversed_edge_tuple))
         self.dimension = dimension
         self.adjacency_matrix = self.get_adjacency_matrix()
         self.adjacency_list = self.get_adjacency_list()
@@ -193,41 +174,28 @@ class Graph:
                 adj_list[edge[0]] = {edge[1]}
             else:
                 adj_list[edge[0]].add(edge[1])
-        for i in range(len(self.vertices)):
-            if i not in adj_list:
-                adj_list[i] = {}
         return adj_list
 
     def adjacency_list_tostring(self):
         self.update_representation()
         result = ""
-        adj_list = self.get_adjacency_list()
-        for key_vertex in adj_list:
-            result += str(key_vertex) + ": " + str(adj_list[key_vertex]) + "\n"
+        for key_vertex in self.get_adjacency_list:
+            result += str(key_vertex) + ": " + str(self.get_adjacency_list[key_vertex]) + "\n"
+
         return result
 
-    def adjacency_matrix_tostring(self):
-        result = ""
-        adj_matrix = self.get_adjacency_matrix()
-        for row in adj_matrix:
-            result += str(row) + "\n"
-        return result
-
-    def add_vertex(self, coordinate):
+    def add_vertex(self, vertex):
         """
         add a vertex to graph
-        :param coordinate: a tuple of length self.dimension
+        :param vertex: a tuple of length self.dimension
         :return: all vertices, a list of tuple
         """
-        if len(coordinate) != self.dimension:
-            raise ValueError(
-                "Adding vertex " + str(coordinate) + " dimension incorrect, dimension should be " + str(self.dimension))
-        vertex = Vertex(coordinate)
-        if vertex in self.vertices:
-            return None
+        if len(vertex) != self.dimension:
+            print("Adding vertex " + str(vertex) + " dimension incorrect, dimension should be " + str(self.dimension))
+            return -1
         self.vertices.append(vertex)
         self.update_representation()
-        return vertex
+        return self.vertices
 
     def add_edge(self, edge):
         """
@@ -236,15 +204,13 @@ class Graph:
         :return: all edges, a list of tuple
         """
         if len(edge) != 2 or type(edge[0]) is not int or type(edge[1]) is not int:
-            raise ValueError("input incorrect\ninput: " + str(edge) + "\ncorrect input type is (int, int)")
-        edge = Edge(edge)
+            print("input incorrect\ninput: " + str(edge) + "\ncorrect input type is (int, int)")
         if edge not in self.edges:
             self.edges.append(edge)
-        reverse_edge = edge.reversed_edge()
-        if self.undirected and reverse_edge not in self.edges:  # add bidirectional edge
-            self.edges.append(reverse_edge)
+        if self.undirected and (edge[1], edge[0]) not in self.edges:  # add bidirectional edge
+            self.edges.append((edge[1], edge[0]))
         self.update_representation()
-        return edge
+        return self.edges
 
     def update_representation(self):
         self.adjacency_matrix = self.get_adjacency_matrix()
@@ -259,54 +225,40 @@ class CompleteGraph(Graph):
     def __init__(self, vertices, dimension=2, undirected=True):
         # add all edges
         vertex_indices = range(len(vertices))
-        edges = [(i, j) for i in vertex_indices for j in vertex_indices if i != j]
-
+        edges = [(i, j) for i in vertex_indices for j in vertex_indices]
         super().__init__(vertices, edges, dimension=dimension, undirected=undirected)
 
-    def add_vertex(self, coordinate):
-        assert len(coordinate) == self.dimension
-        vertex = Vertex(coordinate)
-        if vertex in self.vertices:
-            return None
+    def add_vertex(self, vertex):
+        assert len(vertex) == self.dimension
         self.vertices.append(vertex)
         new_vertex_index = len(self.vertices) - 1
         for i in range(len(self.vertices) - 1):
-            edge = Edge((i, new_vertex_index))
-            if edge not in self.edges:
-                self.edges.append(edge)
-            reversed_edge = edge.reversed_edge()
-            if reversed_edge not in self.edges:
-                self.edges.append(reversed_edge)
+            if (i, new_vertex_index) not in self.vertices:
+                self.vertices.append((i, new_vertex_index))
+            if (new_vertex_index, i) not in self.vertices:
+                self.vertices.append((new_vertex_index, i))
 
 
 class WeightedGraph(Graph):
     def __init__(self, vertices, edges, weights, dimension=2, undirected=False, negative_weight=False):
-        super().__init__(vertices, edges, dimension=dimension, undirected=False)
+        super().__init__(vertices, edges, dimension=dimension, undirected=undirected)
         self.negative_weight = negative_weight
         assert len(weights) == len(edges)  # every edge has a weight, 1-to-1
         if not negative_weight:  # if negative weight is not allowed, make sure that there is really no negative weight
             for weight in weights:
                 assert weight > 0
         self.weights = weights
-        self.weight_dict = {}
-        assert len(self.edges) == len(self.weights)
-        for i in range(len(self.edges)):
-            self.edges[i].weight = self.weights[i]
-            self.weight_dict[self.edges[i].edge] = self.weights[i]
 
     def add_edge(self, edge, weight):
         if len(edge) != 2 or type(edge[0]) is not int or type(edge[1]) is not int:
-            raise ValueError("Invalid input\ninput: " + str(edge) + "\ncorrect input type is (int, int)")
+            raise Exception("Invalid input\ninput: " + str(edge) + "\ncorrect input type is (int, int)")
         if edge[0] >= len(self.vertices) or edge[1] >= len(self.vertices):
-            raise ValueError("edge index out of bound, doesn't represent a vertex")
-        edge = Edge(edge)
+            raise Exception("edge index out of bound, doesn't represent a vertex")
         if edge not in self.edges:
             self.edges.append(edge)
             self.weights.append(weight)
-            edge.weight = weight
-            reversed_edge = edge.reversed_edge()
-            if self.undirected and reversed_edge not in self.edges:
-                self.edges.append(reversed_edge)  # add an extra edge for undirected graph
+            if self.undirected and (edge[1], edge[0]) not in self.edges:
+                self.edges.append((edge[1], edge[0]))  # add an extra edge for undirected graph
                 self.weights.append(weight)  # add an extra weight for the extra edge
         return self.edges, self.weights
 
@@ -314,9 +266,9 @@ class WeightedGraph(Graph):
 class EuclideanDistanceWeightedGraph(WeightedGraph):
     def __init__(self, vertices, edges, dimension=2, undirected=False, negative_weight=False):
         weights = []
-        for edge in edges:
-            vertex1 = vertices[edge[0]]
-            vertex2 = vertices[edge[1]]
+        for edge in self.edges:
+            vertex1 = self.vertices[edge[0]]
+            vertex2 = self.vertices[edge[1]]
             distance = euclidean_distance(vertex1, vertex2)
             weights.append(distance)
         super().__init__(vertices, edges, weights=weights, dimension=dimension, undirected=undirected,
@@ -324,20 +276,16 @@ class EuclideanDistanceWeightedGraph(WeightedGraph):
 
     def add_edge(self, edge):
         if len(edge) != 2 or type(edge[0]) is not int or type(edge[1]) is not int:
-            raise ValueError("Invalid input\ninput: " + str(edge) + "\ncorrect input type is (int, int)")
+            raise Exception("Invalid input\ninput: " + str(edge) + "\ncorrect input type is (int, int)")
         if edge[0] >= len(self.vertices) or edge[1] >= len(self.vertices):
-            raise ValueError("edge index out of bound, doesn't represent a vertex")
-        edge = Edge(edge)
+            raise Exception("edge index out of bound, doesn't represent a vertex")
         if edge not in self.edges:
             vertex1 = self.vertices[edge[0]]
             vertex2 = self.vertices[edge[1]]
-            weight = euclidean_distance(vertex1.get_coordinate(), vertex2.get_coordinate())
-            edge.weight = weight
+            weight = euclidean_distance(vertex1, vertex2)
             self.edges.append(edge)
             self.weights.append(weight)
-            reversed_edge = edge.reversed_edge()
-            if self.undirected and reversed_edge not in self.edges:
-                reversed_edge.weight = weight
-                self.edges.append(reversed_edge)  # add an extra edge for undirected graph
+            if self.undirected and (edge[1], edge[0]) not in self.edges:
+                self.edges.append((edge[1], edge[0]))  # add an extra edge for undirected graph
                 self.weights.append(weight)  # add an extra weight for the extra edge
         return self.edges, self.weights
