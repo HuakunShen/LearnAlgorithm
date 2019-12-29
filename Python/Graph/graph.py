@@ -51,6 +51,10 @@ def gen_random_edges(vertices, num_edges):
     return edges
 
 
+def gen_random_weights(num_edge):
+    return [random.randint(1, num_edge) for i in range(num_edge)]
+
+
 def randint_without(start, end, exception):
     """
     a helper, improved based on random.randint.
@@ -109,6 +113,7 @@ class Vertex:
         self.coordinate = coordinate
         self.dimension = len(coordinate)
         self.color = None
+        self.index = None
 
     def get_coordinate(self) -> tuple:
         return self.coordinate
@@ -154,8 +159,10 @@ class Graph:
         for vertex in vertices:
             assert len(vertex) == dimension
         self.vertices = []
-        for vertex in vertices:
-            self.vertices.append(V(vertex))
+        for i in range(len(vertices)):
+            vertex = V(vertices[i])
+            vertex.index = i
+            self.vertices.append(vertex)
         self.undirected = undirected
         # setup edges
         self.edges = []
@@ -197,6 +204,18 @@ class Graph:
             if i not in adj_list:
                 adj_list[i] = {}
         return adj_list
+
+    # def get_adjacency_list_vertex(self):
+    #     adj_index_list = self.get_adjacency_list()
+    #     adj_list = {}
+    #
+    #     for v_index in adj_index_list:
+    #         next_vs = []
+    #         for next_v_index in adj_index_list[v_index]:
+    #             next_vs.append(self.vertices[next_v_index])
+    #         adj_list[self.vertices[v_index]] = set(next_vs)
+    #
+    #     return adj_list
 
     def adjacency_list_tostring(self):
         self.update_representation()
@@ -341,3 +360,10 @@ class EuclideanDistanceWeightedGraph(WeightedGraph):
                 self.edges.append(reversed_edge)  # add an extra edge for undirected graph
                 self.weights.append(weight)  # add an extra weight for the extra edge
         return self.edges, self.weights
+
+
+# vertices, edges = gen_random_simple_graph(5, 5)
+# graph = Graph(vertices, edges)
+# print(graph.adjacency_list_tostring())
+# adj_list = graph.get_adjacency_list_vertex()
+# print(adj_list[graph.vertices[0]])

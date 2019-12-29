@@ -1,8 +1,7 @@
 from Graph.graph import *
-import random
 from queue import PriorityQueue
-# from DataStructure.maxHeap import MaxHeap
-#
+
+
 class Vertex(Vertex):
     def __init__(self, coordinate):
         super().__init__(coordinate)
@@ -11,7 +10,6 @@ class Vertex(Vertex):
 
     def __lt__(self, other):
         return self.d < other.d
-
 
 
 class SingleSourceShortestPath(WeightedGraph):
@@ -59,8 +57,6 @@ class SingleSourceShortestPath(WeightedGraph):
             for v in self.adjacency_list[u_index]:
                 self.relax(u_index, v)
 
-
-
     def print_path(self, i):
         vertex = self.vertices[i]
         result = str(i)
@@ -76,8 +72,8 @@ class SingleSourceShortestPath(WeightedGraph):
         return result, weight
 
 
-vertices, edges = gen_random_simple_graph(5, 5)
-weights = [random.randint(1, 10) for i in range(5)]
+vertices, edges = gen_random_simple_graph(5, 10)
+weights = gen_random_weights(10)
 graph = SingleSourceShortestPath(vertices, edges, weights, 0)
 
 graph.bellman_ford()
