@@ -1,7 +1,11 @@
+import doctest
+
+
 class Solution:
     """
     移动窗口
     """
+
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
         >>> sol = Solution()
@@ -33,5 +37,4 @@ class Solution:
 
 
 if __name__ == "__main__":
-    import doctest
     doctest.testmod(verbose=True)
