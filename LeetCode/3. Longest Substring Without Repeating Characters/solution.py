@@ -1,4 +1,7 @@
 class Solution:
+    """
+    移动窗口
+    """
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
         >>> sol = Solution()
