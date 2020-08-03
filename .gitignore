@@ -1,4 +1,10 @@
 venv
-.idea*
+.idea
 
 .DS_Store
+
+Python/DataStructure/__pycache__/
+
+Python/Graph/__pycache__/
+
+*.pyc
