@@ -7,9 +7,6 @@ class Solution:
     Otherwise, let "L" be the min length of strs, Worst Case Runtime should be O(n x L)
     """
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        """
-
-        """
         if not len(strs): return ""
         min_len = float("inf")
         for s in strs:
