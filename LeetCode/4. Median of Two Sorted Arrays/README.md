@@ -34,6 +34,7 @@ class Solution0:
 ### Analysis
 
 Assuming `len(nums1) = m, len(nums2) = n`
+
 **Time Complexity:** $\mathcal{O}(m + n)$
 
 - Merge takes $\mathcal{O}(m + n)$ of time, getting median takes $\mathcal{O}(1)$ of time
@@ -101,6 +102,7 @@ If **Condition1** is not satisfied, then keep searching for the right partition 
 ### Analysis
 
 Assuming `len(nums1) = m, len(nums2) = n`
+
 **Time Complexity:** $\mathcal{O}(\log({min(m, n)}))$
 
 - Binary Search on the shorter array
