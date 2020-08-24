@@ -15,28 +15,9 @@
 | [21. Merge Two Sorted lists](./21.Merge-Two-Sorted-lists)                                               |                           |
 | [26. Remove Duplicates from Sorted Array](./26.Remove-Duplicates-from-Sorted-Array)                     |                           |
 | [27. Remove Element](./27.Remove-Element)                                                               |                           |
-| [28. Implement strStr()](./28.Implement-strStr())                                                       |                           |
+| [28. Implement strStr()](<./28.Implement-strStr()>)                                                     |                           |
 | [36. Valid Sudoku](./36.Valid-Sudoku)                                                                   |                           |
 | [70. Climbing Stairs](./70.Climbing-Stairs)                                                             | Dynamic-Programming       |
 | [206. Reverse Linked List](./206.Reverse-Linked-List)                                                   | Recursion, Triple-Pointer |
+| [226. Invert Binary Tree](./226.Invert-Binary-Tree)                                                     | Recursion                 |
 | [300. Longest Increasing Subsequence](./300.Longest-Increasing-Subsequence)                             |                           |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
