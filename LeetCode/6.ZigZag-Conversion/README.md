@@ -192,13 +192,13 @@ The `ret += s[j + cycleLen - i];` may be confusing.
 
 ##### Outer Rows (First Row/Last Row)
 
-<img src="README.assets/image-20200824070727545.png" alt="image-20200824070727545" style="width:100px;" />
+<img src="README.assets/image-20200824070727545.png" alt="image-20200824070727545" width="400" />
 
 ##### Inner Rows
 
-<img src="README.assets/image-20200824070528398.png" alt="image-20200824070528398" style="max-width:200px;" />
+<img src="README.assets/image-20200824070528398.png" alt="image-20200824070528398" width="400" />
 
-<img src="README.assets/image-20200824070528398.png" alt="image-20200824070528398" width="200" />
+<img src="README.assets/image-20200824070528398.png" alt="image-20200824070528398" width="400" />
 
 #### Complexity Analysis
 
