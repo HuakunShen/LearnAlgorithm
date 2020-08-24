@@ -198,7 +198,7 @@ The `ret += s[j + cycleLen - i];` may be confusing.
 
 <img src="README.assets/image-20200824070528398.png" alt="image-20200824070528398" style="max-width:200px;" />
 
-<img src="README.assets/image-20200824070528398.png" alt="image-20200824070528398" style="zoom:25%;" />
+<img src="README.assets/image-20200824070528398.png" alt="image-20200824070528398" width="200" />
 
 #### Complexity Analysis
 

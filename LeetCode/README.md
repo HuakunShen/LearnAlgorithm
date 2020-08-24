@@ -7,6 +7,7 @@
 | [3. Longest Substring Without Repeating Characters](./3.Longest-Substring-Without-Repeating-Characters) |                           |
 | [4. Median of Two Sorted Arrays](./4.Median-of-Two-Sorted-Arrays)                                       | Partition                 |
 | [5. Longest Palindromic Substring](./5.Longest-Palindromic-Substring)                                   |                           |
+| [6. ZigZag Conversion](./6.ZigZag-Conversion)                                                           | Index                     |
 | [7. Reverse Integer](./7.Reverse-Integer)                                                               |                           |
 | [9. Palindrome Number](./9.Palindrome-Number)                                                           |                           |
 | [11. Container With Most Water](./11.Container-With-Most-Water)                                         | Double-Pointer            |
