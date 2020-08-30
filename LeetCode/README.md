@@ -10,6 +10,7 @@
 | [6. ZigZag Conversion](./Problems/6.ZigZag-Conversion)                                                           | Index                     |
 | [7. Reverse Integer](./Problems/7.Reverse-Integer)                                                               |                           |
 | [9. Palindrome Number](./Problems/9.Palindrome-Number)                                                           |                           |
+| [10. Regular Expression Matching](./Problems/10.Regular-Expression-Matching)                                     | Recursion, DP             |
 | [11. Container With Most Water](./Problems/11.Container-With-Most-Water)                                         | Double-Pointer            |
 | [14. Longest Common Prefix](./Problems/14.Longest-Common-Prefix)                                                 |                           |
 | [20. Valid Parentheses](./Problems/20.Valid-Parentheses)                                                         |                           |
@@ -18,7 +19,7 @@
 | [27. Remove Element](./Problems/27.Remove-Element)                                                               |                           |
 | [28. Implement strStr()](<./28.Implement-strStr()>)                                                              |                           |
 | [36. Valid Sudoku](./Problems/36.Valid-Sudoku)                                                                   |                           |
-| [70. Climbing Stairs](./Problems/70.Climbing-Stairs)                                                             | Dynamic-Programming       |
+| [70. Climbing Stairs](./Problems/70.Climbing-Stairs)                                                             | DP                        |
 | [206. Reverse Linked List](./Problems/206.Reverse-Linked-List)                                                   | Recursion, Triple-Pointer |
 | [226. Invert Binary Tree](./Problems/226.Invert-Binary-Tree)                                                     | Recursion                 |
 | [300. Longest Increasing Subsequence](./Problems/300.Longest-Increasing-Subsequence)                             |                           |
