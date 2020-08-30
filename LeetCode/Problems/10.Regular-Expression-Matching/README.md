@@ -62,7 +62,7 @@ class SolutionDP1:
 
 #### Complexity Analysisl
 
-et m=len(p), n=len(s)
+let m=len(p), n=len(s)
 
 **Time Complexity:** O(mn), go through most of the table, bounded by *m x n*
 
@@ -198,6 +198,7 @@ class SolutionDPBottomUp2:
         memo = [[False] * (len(p) + 1) for _ in range(len(s) + 1)]
         memo[0][0] = True
         for col in range(1, len(memo[0])):
+            # init all empty string cases
             if p[col - 1] == "*":
                 memo[0][col] = memo[0][col - 2]
         for row in range(1, len(memo)):
