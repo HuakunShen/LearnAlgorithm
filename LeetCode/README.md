@@ -19,7 +19,11 @@
 | [27. Remove Element](./Problems/27.Remove-Element)                                                               |                           |
 | [28. Implement strStr()](<./28.Implement-strStr()>)                                                              |                           |
 | [36. Valid Sudoku](./Problems/36.Valid-Sudoku)                                                                   |                           |
+| [46. Permutations](./Problems/46.Permutations)                                                                   | Recursion                 |
 | [70. Climbing Stairs](./Problems/70.Climbing-Stairs)                                                             | DP                        |
+| [175. Combine Two Tables](./Problems/175.Combine-Two-Tables)                                                     | SQL JOIN                  |
 | [206. Reverse Linked List](./Problems/206.Reverse-Linked-List)                                                   | Recursion, Triple-Pointer |
+| [220. Contains Duplicate III](220.Contains-Duplicate-III)                                                        |                           |
 | [226. Invert Binary Tree](./Problems/226.Invert-Binary-Tree)                                                     | Recursion                 |
 | [300. Longest Increasing Subsequence](./Problems/300.Longest-Increasing-Subsequence)                             |                           |
+| [949. Largest Time for Given Digits](./Problems/949.-Largest-Time-for-Given-Digits)                              | Recursion                 |
