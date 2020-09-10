@@ -10,3 +10,7 @@ Python/Graph/__pycache__/
 *.pyc
 
 .vscode/
+
+LeetCode/Problems/217.Contains-Duplicate/cmake-build-debug/
+
+LeetCode/Problems/217.Contains-Duplicate/CMakeLists.txt
