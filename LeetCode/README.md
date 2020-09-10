@@ -1,6 +1,6 @@
 # LeetCode
 
-[Problems Table](./Crawler/problems.html)
+[Problems Table](./Crawler/problems.md)
 
 | Title                                                                                                            | Tags                      |
 | ---------------------------------------------------------------------------------------------------------------- | ------------------------- |
