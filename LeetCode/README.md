@@ -23,8 +23,9 @@
 | [70. Climbing Stairs](./Problems/70.Climbing-Stairs)                                                             | DP                        |
 | [175. Combine Two Tables](./Problems/175.Combine-Two-Tables)                                                     | SQL JOIN                  |
 | [206. Reverse Linked List](./Problems/206.Reverse-Linked-List)                                                   | Recursion, Triple-Pointer |
-| [217. Contains Duplicate](217.Contains-Duplicate)                                                                | set, hash                 |
-| [220. Contains Duplicate III](220.Contains-Duplicate-III)                                                        |                           |
+| [217. Contains Duplicate](./Problems/217.Contains-Duplicate)                                                     | set, hash                 |
+| [219. Contains Duplicate II](./Problems/219.Contains-Duplicate-II)                                               | set, hash                 |
+| [220. Contains Duplicate III](./Problems/220.Contains-Duplicate-III)                                             |                           |
 | [226. Invert Binary Tree](./Problems/226.Invert-Binary-Tree)                                                     | Recursion                 |
 | [300. Longest Increasing Subsequence](./Problems/300.Longest-Increasing-Subsequence)                             |                           |
 | [949. Largest Time for Given Digits](./Problems/949.-Largest-Time-for-Given-Digits)                              | Recursion                 |
