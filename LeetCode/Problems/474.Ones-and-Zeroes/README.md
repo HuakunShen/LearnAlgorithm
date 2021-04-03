@@ -2,6 +2,10 @@
 
 [Python Solution](./solution.py)
 
+Time Complexity: $O(m\cdot n\cdot len(strs))$
+
+Space Complexity: $O(m\cdot n)$
+
 ## Dynamic Programming (Bottom Up)
 
 Each string in `strs` can be either in or not in the solution set.
