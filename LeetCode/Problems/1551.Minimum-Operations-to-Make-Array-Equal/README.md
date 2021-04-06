@@ -1,5 +1,7 @@
 # 1551. Minimum Operations to Make Array Equal
 
+[LeetCode Problem](https://leetcode.com/problems/minimum-operations-to-make-array-equal/)
+
 Medium
 
 This is a Math problem.
