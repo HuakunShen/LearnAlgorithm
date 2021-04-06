@@ -6,6 +6,8 @@ This is a Math problem.
 
 Since the array is guaranteed to be able to be averaged, we can simply count the sum of difference between all numbers smaller than average and the average.
 
+## Mehthod 1:
+
 Time Complexity: O(n)
 
 Space Complexity: O(1)
@@ -19,7 +21,6 @@ class Solution:
             if num > n:
                 less_count += num - n
         return less_count
-        
 ```
 
 ```cpp
@@ -34,6 +35,49 @@ public:
             }
         }
         return less_count;
+    }
+};
+```
+
+## Method 2
+
+Time Complexity: O(1)
+
+Space Complexity: O(1)
+
+```cpp
+class Solution {
+public:
+    int minOperations(int n) {
+        int remainder = n % 2;
+        return (remainder + 1 + (n - 1)) * ((n - remainder) / 2) / 2;
+    }
+};
+```
+
+
+### Simplified Version
+
+Runtime 0ms, Memory Usage 5.8MB.
+
+Beat 100% in both time and space
+
+```cpp
+class Solution {
+public:
+    int minOperations(int n) {
+        return (pow(n, 2) - pow(n % 2, 2)) / 4;
+    }
+};
+```
+
+Due to integer division, can be simplied to
+
+```cpp
+class Solution {
+public:
+    int minOperations(int n) {
+        return pow(n, 2) / 4;
     }
 };
 ```
