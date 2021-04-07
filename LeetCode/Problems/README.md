@@ -35,3 +35,4 @@
 | [622. Design Circular Queue](./Problems/622.Design-Circular-Queue)                                               | Design, Queue                                  |
 | [949. Largest Time for Given Digits](./Problems/949.Largest-Time-for-Given-Digits)                              | Recursion                                      |
 | [1551. Minimum Operations to Make Array Equal](./Problems/1551.Minimum-Operations-to-Make-Array-Equal) | Math |
+| [1704. Determine if String Halves Are Alike](1704.Determine-if-String-Halves-Are-Alike) | String |
