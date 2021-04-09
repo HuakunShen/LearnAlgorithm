@@ -15,6 +15,7 @@
 | [10. Regular Expression Matching](./Problems/10.Regular-Expression-Matching)                                     | Recursion, DP                                  |
 | [11. Container With Most Water](./Problems/11.Container-With-Most-Water)                                         | Double-Pointer                                 |
 | [14. Longest Common Prefix](./Problems/14.Longest-Common-Prefix)                                                 |                                                |
+| [17. Letter Combinations of a Phone Number](./Problems/17.Letter-Combinations-of-a-Phone-Number)                 | String, Backtracking, DFS, Recursion           |
 | [20. Valid Parentheses](./Problems/20.Valid-Parentheses)                                                         |                                                |
 | [21. Merge Two Sorted lists](./Problems/21.Merge-Two-Sorted-lists)                                               |                                                |
 | [26. Remove Duplicates from Sorted Array](./Problems/26.Remove-Duplicates-from-Sorted-Array)                     |                                                |
