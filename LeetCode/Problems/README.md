@@ -34,6 +34,7 @@
 | [300. Longest Increasing Subsequence](./Problems/300.Longest-Increasing-Subsequence)                             |                                                |
 | [474. Ones and Zeroes](./Problems/474.Ones-and-Zeroes)                                                           | DP                                             |
 | [622. Design Circular Queue](./Problems/622.Design-Circular-Queue)                                               | Design, Queue                                  |
+| [695. Max Area of Island](./Problems/695.Max-Area-of-Island)                                                      | Array, DFS                                    |
 | [949. Largest Time for Given Digits](./Problems/949.Largest-Time-for-Given-Digits)                              | Recursion                                      |
 | [1551. Minimum Operations to Make Array Equal](./Problems/1551.Minimum-Operations-to-Make-Array-Equal) | Math |
 | [1704. Determine if String Halves Are Alike](1704.Determine-if-String-Halves-Are-Alike) | String |
