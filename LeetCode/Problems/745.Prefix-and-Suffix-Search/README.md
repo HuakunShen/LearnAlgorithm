@@ -26,3 +26,9 @@ Keys:
 - bc
 - cb
 - da
+
+[Solution 3](./solution3.py)
+
+A solution copied from discussion.
+
+Very special & smart & tricky solution. Use the debugger to find out.
