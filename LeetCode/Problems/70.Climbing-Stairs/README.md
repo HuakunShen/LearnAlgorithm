@@ -1,6 +1,8 @@
 # 70. Climbing Stairs
 
-This is a standard dynamic programming program.
+[solution.py](./solution.py)
+
+This is a typical dynamic programming program.
 
 With regular bottom-up dynamic programming, we can achieve a time complexity of O(n) and space complexity of O(n),
 because we have to store a array of previous calculated solutions and go through every single one of the index.
