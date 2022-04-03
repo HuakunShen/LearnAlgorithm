@@ -25,33 +25,29 @@ class Solution:
             return s
         while s < e:
             m = (s + e) // 2
+            print(s, m, e)
             if nums[e] == target:
                 # when calculating mid point, it will always round down that `m` would never be `e`. Have to test it separately
                 return e
             if nums[m] == target:
                 return m
+            if nums[s] == target:
+                return s
             if nums[s] < nums[m]:
                 # left section in order, right out order
                 if nums[s] < target < nums[m]:
                     # regular binary search in left section
-                    e = m
+                    e = m - 1
                 else: # search right section
-                    if s == m:
-                        # in case of falling into infinite loop
-                        return -1
-                    s = m
+                    s = m + 1
             else:
                 # right section in order
                 if nums[m] < target < nums[e]:
                     # regular binary search in right section
-                    if s == m:
-                        # in case of falling into infinite loop
-                        return -1
-                    s = m
+                    s = m + 1
                 else: # search left section
-                    e = m
-        return -1
-                
+                    e = m - 1
+        return -1                
 ```
 
 ## Test Cases
