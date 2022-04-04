@@ -10,7 +10,7 @@ Without modifying node value.
 class Solution:
     def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         count, cur = 0, head
-				# count array length first
+                # count array length first
         while cur is not None:
             count += 1
             cur = cur.next
@@ -21,7 +21,7 @@ class Solution:
             return self.swapNodes(head, p2_pos)
         i, cur, p1, p1_prev, p2, p2_prev = 0, head, None, None, None, None
         p2_pos = count - k + 1
-		# find and set pointer for first number, second number and their previous nodes
+        # find and set pointer for first number, second number and their previous nodes
         while cur is not None:
             if i + 2 == k and k != 1:
                 p1_prev = cur
@@ -68,7 +68,7 @@ class Solution:
             if count == p2_pos:
                 p2 = cur
             cur = cur.next
-				# swap nodes' values in place
+        # swap nodes' values in place
         p1.val, p2.val = p2.val, p1.val		# python multiple assignment, no need to save a backup for one of the number
         return head
 ```
