@@ -198,6 +198,18 @@ class Solution:
 ```
 
 
+### Another Way From Discussion
+
+https://leetcode.com/problems/maximum-equal-frequency/discuss/1623255/Python-O(N)-time-comlexityorO(N)-space
+
+The nature of this algorithm is pretty much the same as mine, but goes in another direction, making the algorithm much simpler.
+
+
+Instead of computing and updating a best-so-far variable, this method goes backwards, pre compute a full hash map of 
+frequency, starting from the end of array, stop when it sees the first solution. Very clever.
+
+See [solution2.py](./solution2.py) for a modified version that's easier to understand.
+
 ## Test Cases
 
 ```
