@@ -10,7 +10,7 @@ Without modifying node value.
 class Solution:
     def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         count, cur = 0, head
-                # count array length first
+        # count array length first
         while cur is not None:
             count += 1
             cur = cur.next
