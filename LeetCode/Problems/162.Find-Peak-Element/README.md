@@ -6,6 +6,8 @@
 
 ### Linear Search
 
+O(n)
+
 ```python
 class Solution:
     def findPeakElement(self, nums: List[int]) -> int:
@@ -21,6 +23,25 @@ class Solution:
                     return len(nums) - 1
                 if nums[i] > nums[i] - 1 and nums[i] > nums[i + 1]:
                     return i
+```
+
+### Another Lineary Search
+
+Unlike the previous method which explicitly listed all conditions. This method implicitly considers all scenarios, including edge cases. 
+
+Iterate and always check if current is higher than the next number. 
+
+If not higher, then it's incrementing, keep going, in the worst case, if it increments to the end, return the last index. 
+
+If higher it's now higher than the previous and next number, because, by definition, current number is higher than all previous numbers.
+
+```python
+class Solution:
+    def findPeakElement(self, nums: List[int]) -> int:
+        for i in range(len(nums) - 1):
+            if nums[i] > nums[i + 1]:
+                return i
+        return len(nums) - 1
 ```
 
 ### Iterative Binary Search
