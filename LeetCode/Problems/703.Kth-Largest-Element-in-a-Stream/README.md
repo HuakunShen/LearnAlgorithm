@@ -23,7 +23,7 @@ Related Problem:
 
 ## Solution
 
-### Trial Solution with heap (will timeout)
+### Trivial Solution with heap (will timeout)
 
 Since python's `heapq` library implements a min heap, I store all the numbers after inverting them (times -1).
 
