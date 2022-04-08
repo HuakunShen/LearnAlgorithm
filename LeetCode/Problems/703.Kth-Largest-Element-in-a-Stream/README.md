@@ -102,9 +102,9 @@ class KthLargest:
 
 Not sure how SortedList is implemented, but whatever is added to the sorted list, it's always in order.
 
-I guess data is stored in a regular list structure to support fastest access with index.
+I guess data is stored in a regular list structure to support fastest access (`O(1)`) with index.
 
-In this case, adding a new element takes O(N) time. O(N) to perform insertion sort style insertion, or O(log(N)) to perform binary earch, and O(N) to shift elements.
+In this case, adding a new element takes at least O(log(N)) time. O(N) to perform insertion sort style insertion, or O(log(N)) to perform binary earch, and O(N) to shift elements.
 
 **Time Complexity:** O(N*log(N) + M * N)
 
