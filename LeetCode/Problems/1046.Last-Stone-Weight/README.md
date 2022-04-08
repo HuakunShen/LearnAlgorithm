@@ -1,5 +1,8 @@
 # 1046. Last Stone Weight
 
+- [1046. Last Stone Weight](#1046-last-stone-weight)
+  - [Solution](#solution)
+
 https://leetcode.com/problems/last-stone-weight/
 
 Level: Easy
@@ -26,6 +29,3 @@ class Solution:
             heappush(heap, heappop(heap) - heappop(heap))
         return -heap[0]
 ```
-
-
-

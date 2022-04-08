@@ -1,5 +1,13 @@
 # 703. Kth Largest Element in a Stream
 
+- [703. Kth Largest Element in a Stream](#703-kth-largest-element-in-a-stream)
+	- [Solution](#solution)
+		- [Trial Solution with heap (will timeout)](#trial-solution-with-heap-will-timeout)
+		- [Faster Heap Solution with a Trick](#faster-heap-solution-with-a-trick)
+			- [Time Complexity:](#time-complexity)
+			- [Space Complexity:](#space-complexity)
+		- [Super Short Solution with SortedList](#super-short-solution-with-sortedlist)
+
 https://leetcode.com/problems/kth-largest-element-in-a-stream/
 
 Level: Easy
