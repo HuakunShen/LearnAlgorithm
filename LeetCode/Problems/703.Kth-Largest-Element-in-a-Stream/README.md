@@ -63,6 +63,7 @@ Costs O(N + M) to store a heap (regular array) of size `N+M` (initial size N, an
 Read [Heap Notes](../../../Technique/heap.md) first.
 
 > Runtime: 111 ms, faster than 76.78% of Python3 online submissions for Kth Largest Element in a Stream.
+> 
 > Memory Usage: 18.5 MB, less than 10.77% of Python3 online submissions for Kth Largest Element in a Stream.
 
 ```python
@@ -96,6 +97,7 @@ class KthLargest:
 ### Super Short Solution with SortedList
 
 > Runtime: 147 ms, faster than 47.73% of Python3 online submissions for Kth Largest Element in a Stream.
+> 
 > Memory Usage: 18.7 MB, less than 6.16% of Python3 online submissions for Kth Largest Element in a Stream.
 
 Not sure how SortedList is implemented, but whatever is added to the sorted list, it's always in order.
