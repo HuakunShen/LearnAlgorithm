@@ -8,6 +8,19 @@ To remove a node in linked list, we usually connect the `next` attribute of the 
 
 Sentinel can be added to the front of linked list's head to solve this problem.
 
+## General Code Structure
+
+```python
+def solution(head: ListNode):
+	sentinel = ListNode(0, head)
+	pred = sentinel
+	while pred:
+		# ... head may be moved somewhere
+		pred.next = head
+	return sentinel.next
+```
+
+See [203.Remove-Linked-List-Elements](../LeetCode/Problems/203.Remove-Linked-List-Elements/README.md) for an example.
 
 # Reference
 
