@@ -17,17 +17,17 @@ Given that a matrix contains n elements in total.
 
 ```python
 class Solution:
-	"""
-	Runtime: 193 ms, faster than 70.75% of Python3 online submissions for Shift 2D Grid.
-	Memory Usage: 14.4 MB, less than 35.10% of Python3 online submissions for Shift 2D Grid.
-	"""
+    """
+    Runtime: 193 ms, faster than 70.75% of Python3 online submissions for Shift 2D Grid.
+    Memory Usage: 14.4 MB, less than 35.10% of Python3 online submissions for Shift 2D Grid.
+    """
     def shiftGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:
         nrow, ncol = len(grid), len(grid[0])
-        flat_grid = [ele for row in grid for ele in row]		# O(n)
+        flat_grid = [ele for row in grid for ele in row]        # O(n)
         grid_size = len(flat_grid)
         k = k % grid_size
-        part1 = flat_grid[:(grid_size-k)]						# O(n)
-        part2 = flat_grid[(grid_size-k):]						# O(n)
-        part2.extend(part1)										# O(n)
+        part1 = flat_grid[:(grid_size-k)]                       # O(n)
+        part2 = flat_grid[(grid_size-k):]                       # O(n)
+        part2.extend(part1)                                     # O(n)
         return [part2[i*ncol:(i+1)*ncol] for i in range(nrow)]  # O(n)
 ```
