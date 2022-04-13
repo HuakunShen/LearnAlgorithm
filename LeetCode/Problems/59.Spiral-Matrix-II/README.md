@@ -101,3 +101,24 @@ class Solution:
 			cur += 1
 		return board
 ```
+
+## Zhuangbi Solution
+
+```python
+class Solution:
+    """
+    Runtime: 40 ms, faster than 68.74% of Python3 online submissions for Spiral Matrix II.
+	Memory Usage: 13.9 MB, less than 85.81% of Python3 online submissions for Spiral Matrix II.
+    """
+
+    def generateMatrix(self, n: int) -> List[List[int]]:
+        r, c, cur, del_row, del_col, board = 0, 0, 1, 0, 0, [[0 for __ in range(n)] for _ in range(n)]
+        while True:
+            left, right, top, bottom = c != 0 and board[r][c - 1] == 0, c != n - 1 and board[r][c + 1] == 0, r != 0 and board[r - 1][c] == 0, r != n - 1 and board[r + 1][c] == 0
+            top_left, top_right, bottom_right, bottom_left = not left and not top and right, not left and not top and not right and bottom, not top and not right and not bottom and left, not bottom and not left and not right and top
+            del_row, del_col = 0 if top_left or bottom_right else (1 if top_right else -1 if bottom_left else del_row), 0 if top_right or bottom_left else (1 if top_left else -1 if bottom_right else del_col)            
+            board[r][c] = cur
+            if not((top_left and not top_right and not bottom_right and not bottom_left) or board[r + del_row][c + del_col] == 0): break
+            r, c, cur = r + del_row, c + del_col, cur + 1
+        return board
+```
