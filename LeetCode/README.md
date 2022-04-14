@@ -1,5 +1,7 @@
 # LeetCode
 
+In some of the solutions I included the runtime and memory usage ranking. It's not a precise metric if the implementation is in Python as the time varies hugely.
+
 [Problems Table](./Crawler/problems.md)
 
 | Title                                                                                                                                                           | Tags                                                     |
