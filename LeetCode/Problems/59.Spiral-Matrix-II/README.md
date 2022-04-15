@@ -116,9 +116,56 @@ class Solution:
         while True:
             left, right, top, bottom = c != 0 and board[r][c - 1] == 0, c != n - 1 and board[r][c + 1] == 0, r != 0 and board[r - 1][c] == 0, r != n - 1 and board[r + 1][c] == 0
             top_left, top_right, bottom_right, bottom_left = not left and not top and right, not left and not top and not right and bottom, not top and not right and not bottom and left, not bottom and not left and not right and top
-            del_row, del_col = 0 if top_left or bottom_right else (1 if top_right else -1 if bottom_left else del_row), 0 if top_right or bottom_left else (1 if top_left else -1 if bottom_right else del_col)            
+            del_row, del_col = 0 if top_left or bottom_right else (1 if top_right else -1 if bottom_left else del_row), 0 if top_right or bottom_left else (1 if top_left else -1 if bottom_right else del_col)
             board[r][c] = cur
             if not((top_left and not top_right and not bottom_right and not bottom_left) or board[r + del_row][c + del_col] == 0): break
             r, c, cur = r + del_row, c + del_col, cur + 1
         return board
 ```
+
+
+## Inside-out Solution
+
+https://leetcode.com/problems/spiral-matrix-ii/discuss/22282
+
+This person provides a 4-line solution in Python in a inside-out pattern.
+
+Although it took advantage of many of Python's syntactic sugar, the inside-out solution is still super cool and elegant.
+
+```bash
+
+    ||  =>  |9|  =>  |8|      |6 7|      |4 5|      |1 2 3|
+                     |9|  =>  |9 8|  =>  |9 6|  =>  |8 9 4|
+                                         |8 7|      |7 6 5|
+```
+
+```python
+# Build it inside-out
+def generateMatrix(self, n):
+    A, lo = [], n*n+1
+    while lo > 1:
+        lo, hi = lo - len(A), lo
+        A = [range(lo, hi)] + zip(*A[::-1])
+    return A
+
+# Ugly inside-out
+def generateMatrix(self, n):
+    A = [[n*n]]
+    while A[0][0] > 1:
+        A = [range(A[0][0] - len(A), A[0][0])] + zip(*A[::-1])
+    return A * (n>0)
+
+# walk the spiral
+def generateMatrix(self, n):
+    A = [[0] * n for _ in range(n)]
+    i, j, di, dj = 0, 0, 0, 1
+    for k in xrange(n*n):
+        A[i][j] = k + 1
+        if A[(i+di)%n][(j+dj)%n]:
+            di, dj = dj, -di
+        i += di
+        j += dj
+    return A
+```
+
+See the [post](https://leetcode.com/problems/spiral-matrix-ii/discuss/22282) for detailed explanation. This 
