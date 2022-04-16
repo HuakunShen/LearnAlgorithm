@@ -1,5 +1,9 @@
 # 669. Trim a Binary Search Tree
 
+[TOC]
+
+
+
 https://leetcode.com/problems/trim-a-binary-search-tree/
 
 Level: Medium 
@@ -14,6 +18,8 @@ For recursion, always analyze the problem and come up with the base case and rec
 Then it will become super simple.
 
 ## Solution
+
+<img src="assets/image-20220416032801190.png" alt="image-20220416032801190" style="width:50%;" />
 
 ### Python
 
