@@ -1,9 +1,10 @@
 # 897. Increasing Order Search Tree
 
+[TOC]
+
 https://leetcode.com/problems/increasing-order-search-tree/
 
 Level: Easy (I feel like this is medium, not so easy if you don't know the trick i.e. inorder traversal)
-
 
 ## Solution
 
@@ -57,7 +58,7 @@ class Solution:
                 right_head, right_tail = helper(root.right)
                 root.right = right_head
                 return left_head, right_tail
-    
+
         head, tail = helper(root)
         return head
 ```
@@ -68,7 +69,7 @@ https://leetcode.com/problems/increasing-order-search-tree/solution/
 
 Let $N$ be number of nodes in a given tree.
 
-The 2 official solutions are variants of each other. The different between this and my solution is that the official 
+The 2 official solutions are variants of each other. The different between this and my solution is that the official
 solution uses traversal to focus the operation on a "cur" node and the next node in traversal. My solution focused on
 handling the cases for 2 subtrees which is more complicated.
 
@@ -81,6 +82,8 @@ So just traverse through it in order in a DFS pattern and attach each node as th
 The underlying idea is similar to my solution but much shorter, where left, root, right are arranged in ordered.
 
 Since Another tree is maintained, and every node is traversed through once, Time and Space Complexity are both $O(N)$.
+
+#### Python
 
 ```python
 class Solution:
@@ -98,12 +101,40 @@ class Solution:
         return ans.right
 ```
 
+#### Java
+
+Python syntax is kind of cheating here. It's better to understand how to do in-order traversal in Java
+
+```java
+class Solution {
+    public TreeNode increasingBST(TreeNode root) {
+        List<Integer> vals = new ArrayList();
+        inorder(root, vals);
+        TreeNode ans = new TreeNode(0), cur = ans;
+        for (int v: vals) {
+            cur.right = new TreeNode(v);
+            cur = cur.right;
+        }
+        return ans.right;
+    }
+
+    public void inorder(TreeNode node, List<Integer> vals) {
+        if (node == null) return;
+        inorder(node.left, vals);
+        vals.add(node.val);
+        inorder(node.right, vals);
+    }
+}
+```
+
 ### Traversal with Relinking
 
 Similar to previous solution, but tree is altered inplace.
 
-Space Complexity reduced to $O(H)$ where $H$ is the height of the given tree, 
+Space Complexity reduced to $O(H)$ where $H$ is the height of the given tree,
 and the size of the implicit call stack in our in-order traversal.
+
+#### Python
 
 ```python
 class Solution:
@@ -121,6 +152,30 @@ class Solution:
         return ans.right
 ```
 
+#### Java
+
+Python syntax is kind of cheating here. It's better to understand how to do in-order traversal in Java
+
+```java
+class Solution {
+    TreeNode cur;
+    public TreeNode increasingBST(TreeNode root) {
+        TreeNode ans = new TreeNode(0);
+        cur = ans;
+        inorder(root);
+        return ans.right;
+    }
+
+    public void inorder(TreeNode node) {
+        if (node == null) return;
+        inorder(node.left);
+        node.left = null;
+        cur.right = node;
+        cur = node;
+        inorder(node.right);
+    }
+}
+```
 
 ## Test Cases
 
