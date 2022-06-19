@@ -42,7 +42,7 @@ class Solution:
 
 O(n) Time Complexity
 
-```c++
+```cpp
 class Solution {
 public:
     vector<int> findAnagrams(string s, string p) {

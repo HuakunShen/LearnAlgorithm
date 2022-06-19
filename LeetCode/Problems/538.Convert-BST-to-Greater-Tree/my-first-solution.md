@@ -137,7 +137,7 @@ class Solution {
 
 ## C++
 
-```c++
+```cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {

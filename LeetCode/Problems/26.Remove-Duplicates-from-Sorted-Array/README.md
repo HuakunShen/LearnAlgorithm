@@ -26,7 +26,7 @@ class Solution:
 
 ## Golang Solution
 
-```Golang
+```go
 func removeDuplicates(nums []int) int {
     i := 0
     for j := 1; i < len(nums) && j < len(nums); j++ {

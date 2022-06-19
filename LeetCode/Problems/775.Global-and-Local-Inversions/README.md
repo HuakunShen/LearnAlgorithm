@@ -23,7 +23,7 @@ class Solution:
 Runtime: 404 ms, faster than 15.38% of Go online submissions for Global and Local Inversions.
 Memory Usage: 6.3 MB, less than 76.92% of Go online submissions for Global and Local Inversions.
 
-```golang
+```go
 func isIdealPermutation(A []int) bool {
     num_local, num_global := 0, 0
     for i, v1 := range A {

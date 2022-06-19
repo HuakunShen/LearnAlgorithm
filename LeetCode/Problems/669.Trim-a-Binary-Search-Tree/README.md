@@ -165,7 +165,7 @@ class Solution {
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -229,7 +229,7 @@ var trimBST = function(root, low, high) {
 
 ### C#
 
-```C#
+```cs
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
