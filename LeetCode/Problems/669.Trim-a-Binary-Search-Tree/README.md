@@ -19,7 +19,8 @@ Then it will become super simple.
 
 ## Solution
 
-<img src="assets/image-20220416032801190.png" alt="image-20220416032801190" style="width:50%;" />
+<!-- <img src="assets/image-20220416032801190.png" alt="image-20220416032801190" style="width:50%;" /> -->
+![assets/image-20220416032801190.png](assets/image-20220416032801190.png)
 
 ### Python
 

@@ -7,13 +7,15 @@ My thinking process while tackling this problem is in the method docstring.
 Given number of nodes = $N$
 
 Time Complexity: $O(N)$
+
 - One traversal
 
 Space Complexity: $O(N)$
+
 - No extra space used for storing tree
 - Recursion takes $O(N)$ space. Each recursive call costs constant space.
 
-<img src="assets/image-20220416033850194.png" alt="image-20220416033850194" style="width:50%;" />
+![assets/image-20220416033850194.png](./assets/image-20220416033850194.png)
 
 ## Python
 
@@ -52,7 +54,7 @@ class Solution:
                 # print(f"root.val: {root.val}, acc: {acc}, left_sum: {left_sum}, right_sum: {right_sum}, total_sum: {total_sum}") # debug message
                 root.val = new_root_val
                 return total_sum
-                
+
         update(root, 0)
         return root
 ```
@@ -228,20 +230,20 @@ Memory Usage: 52 MB, less than 19.84% of JavaScript online submissions for Conve
  */
 
 var update = (root, acc) => {
-    if (root === null) {
-        return 0;
-    } else {
-        const rightSum = update(root.right, acc);
-        const newRootVal = root.val + rightSum + acc;
-        const leftSum = update(root.left, newRootVal);
-        const totalSum = root.val + leftSum + rightSum;
-        root.val = newRootVal;
-        return totalSum;
-    }
-}
+  if (root === null) {
+    return 0;
+  } else {
+    const rightSum = update(root.right, acc);
+    const newRootVal = root.val + rightSum + acc;
+    const leftSum = update(root.left, newRootVal);
+    const totalSum = root.val + leftSum + rightSum;
+    root.val = newRootVal;
+    return totalSum;
+  }
+};
 
-var convertBST = function(root) {
-    update(root, 0);
-    return root;
+var convertBST = function (root) {
+  update(root, 0);
+  return root;
 };
 ```
