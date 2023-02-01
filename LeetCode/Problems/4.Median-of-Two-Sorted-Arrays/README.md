@@ -79,7 +79,8 @@ class Solution:
 
 ## Explanation
 
-<img src="README.assets/image-20200817015401204.png" alt="image-20200817015401204" style="zoom:33%;" />
+<!-- <img src="README.assets/image-20200817015401204.png" alt="image-20200817015401204" style="zoom:33%;" /> -->
+![README.assets/image-20200817015401204.png](./README.assets/image-20200817015401204.png)
 
 Make a partition in `nums1` such that `len(left1)+len(left2)==len(right1)+len(right2)` (if total number of 2 arrays is odd, then `len(left1)+len(left2)==len(right1)+len(right2)+1`, the left partition has 1 more element than the right partition) **(Condition1)**
 
